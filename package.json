@@ -34,11 +34,13 @@
         { "target": "dmg", "arch": ["arm64", "x64"] }
       ],
       "artifactName": "${productName}-${version}-${arch}.${ext}",
-      "identity": null,
-      "notarize": false
+      "identity": "Developer ID Application: Ibn Bilal (U8N2H82PMJ)",
+      "notarize": {
+        "teamId": "U8N2H82PMJ"
+      }
     },
     "dmg": {
-      "sign": false,
+      "sign": true,
       "title": "Launchpad Toggle ${version}",
       "icon": "build/icon.icns",
       "background": "build/background.png",
