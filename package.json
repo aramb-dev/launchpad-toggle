@@ -35,9 +35,7 @@
       ],
       "artifactName": "${productName}-${version}-${arch}.${ext}",
       "identity": "Developer ID Application: Ibn Bilal (U8N2H82PMJ)",
-      "notarize": {
-        "teamId": "U8N2H82PMJ"
-      }
+      "notarize": true
     },
     "dmg": {
       "sign": true,
