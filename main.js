@@ -30,10 +30,18 @@ app.on('window-all-closed', () => {
 /** Helper: run a shell command (non-privileged) */
 function sh(cmd) {
   return new Promise((resolve, reject) => {
-    exec(cmd, (err, stdout, stderr) => {
+    const timeout = 5000; // 5 seconds
+    const process = exec(cmd, (err, stdout, stderr) => {
       if (err) return reject(new Error(stderr || err.message));
       resolve(stdout.toString());
     });
+
+    const killTimeout = setTimeout(() => {
+      process.kill();
+      reject(new Error('Command timed out'));
+    }, timeout);
+
+    process.on('exit', () => clearTimeout(killTimeout));
   });
 }
 
@@ -117,11 +125,11 @@ ipcMain.handle('system:restart:prompt', async (evt) => {
   const win = BrowserWindow.getFocusedWindow();
   const res = await dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['Restart Now', 'Later'],
+    buttons: ['Restart Now', 'Cancel'],
     defaultId: 0,
     cancelId: 1,
     title: 'Restart Required',
-    message: 'A restart is recommended to fully apply changes.'
+    message: 'A restart is required to fully apply changes.'
   });
   if (res.response === 0) {
     // Ask System Events to restart (will prompt if needed)
