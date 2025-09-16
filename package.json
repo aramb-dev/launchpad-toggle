@@ -1,0 +1,15 @@
+{
+  "name": "launchpad-toggle",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "electron .",
+    "build": "echo 'For v0.1 dev only. Packaging comes in v0.9+'"
+  },
+  "dependencies": {
+    "electron": "^31.0.0",
+    "sudo-prompt": "^9.2.1"
+  }
+}

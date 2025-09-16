@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Launchpad Toggle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: -apple-system, system-ui, Helvetica, Arial, sans-serif;
+            margin: 24px;
+        }
+
+        .card {
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background: #f8f8f8;
+            cursor: pointer;
+        }
+
+        .btn.primary {
+            background: #f0f0ff;
+            border-color: #a5a5ff;
+        }
+
+        .pill {
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .pill.ok {
+            background: #eefbef;
+            border-color: #b6e0b7;
+        }
+
+        .pill.warn {
+            background: #fff7e6;
+            border-color: #ffd479;
+        }
+
+        .muted {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .error {
+            color: #b00020;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .restart-notice {
+            margin-top: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Launchpad Toggle</h2>
+    <div class="card">
+        <div id="status" class="pill">Detecting…</div>
+        <p class="muted">Toggle between Classic Launchpad and macOS Tahoe Apps.</p>
+
+        <div class="row">
+            <div>
+                <strong>Classic Launchpad</strong><br />
+                <span class="muted">Restore the old Launchpad experience.</span>
+            </div>
+            <button id="btnClassic" class="btn primary">Enable</button>
+        </div>
+
+        <div class="row">
+            <div>
+                <strong>Tahoe Apps</strong><br />
+                <span class="muted">Use the new Applications experience.</span>
+            </div>
+            <button id="btnTahoe" class="btn">Enable</button>
+        </div>
+
+        <div id="error" class="error"></div>
+    </div>
+
+    <p class="muted restart-notice">A restart is recommended after changes.</p>
+
+    <script src="./renderer.js"></script>
+</body>
+
+</html>
