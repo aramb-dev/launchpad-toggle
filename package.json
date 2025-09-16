@@ -40,18 +40,23 @@
     "dmg": {
       "sign": false,
       "title": "Launchpad Toggle ${version}",
-      "background": null,
+      "icon": "build/icon.icns",
+      "background": "build/background.png",
+      "window": {
+        "width": 540,
+        "height": 380
+      },
       "contents": [
         {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
+          "x": 130,
+          "y": 220,
+          "type": "file"
         },
         {
-          "x": 130,
-          "y": 150,
-          "type": "file"
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
         }
       ]
     },
