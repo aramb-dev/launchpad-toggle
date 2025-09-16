@@ -1,15 +1,88 @@
 {
   "name": "launchpad-toggle",
   "version": "0.1.0",
+  "description": "Toggle between Classic Launchpad and macOS Tahoe Apps",
+  "author": "aramb-dev",
+  "license": "MIT",
   "private": true,
   "main": "main.js",
   "type": "module",
+  "homepage": "https://github.com/aramb-dev/launchpad-toggle",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aramb-dev/launchpad-toggle.git"
+  },
+  "keywords": [
+    "macos",
+    "launchpad",
+    "tahoe",
+    "electron",
+    "system",
+    "utilities"
+  ],
+  "build": {
+    "appId": "com.arambdev.launchpadtoggle",
+    "productName": "Launchpad Toggle",
+    "copyright": "Copyright © 2025 aramb-dev",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "target": [
+        { "target": "dmg", "arch": ["arm64", "x64"] }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "identity": null,
+      "notarize": {
+        "tool": "notarytool",
+        "keychainProfile": "AC_PASSWORD"
+      }
+    },
+    "dmg": {
+      "sign": false,
+      "title": "Launchpad Toggle ${version}",
+      "background": null,
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "package.json",
+      "!node_modules/**/*",
+      "node_modules/sudo-prompt/**/*"
+    ],
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    }
+  },
   "scripts": {
     "dev": "electron .",
-    "build": "echo 'For v0.1 dev only. Packaging comes in v0.9+'"
+    "build": "electron-builder --mac",
+    "dist": "electron-builder --mac --publish=never",
+    "pack": "electron-builder --dir",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "electron": "^31.0.0",
     "sudo-prompt": "^9.2.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.3"
   }
 }

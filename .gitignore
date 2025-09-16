@@ -139,3 +139,16 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Apple Developer certificates and keys
+*.p12
+*.p8
+*.mobileprovision
+*.provisionprofile
+
+# Local config files
+config.local.json
+build/config.local.json
+
+# macOS
+.DS_Store
