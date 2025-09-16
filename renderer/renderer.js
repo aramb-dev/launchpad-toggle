@@ -13,9 +13,28 @@ function setStatus(state) {
   }
 }
 
+function setButtonsDisabled(disabled) {
+  btnClassic.disabled = disabled;
+  btnTahoe.disabled = disabled;
+}
+
+async function checkCompatibility() {
+  const { isCompatible, reason } = await window.api.osCheck();
+  if (!isCompatible) {
+    errorEl.textContent = reason;
+    errorEl.style.display = 'block';
+    setButtonsDisabled(true);
+    statusEl.textContent = 'Unsupported OS';
+    statusEl.className = 'pill';
+  } else {
+    refresh();
+  }
+}
+
 async function refresh() {
   errorEl.style.display = 'none';
   errorEl.textContent = '';
+  setButtonsDisabled(false);
   const { state } = await window.api.getState();
   setStatus(state);
 }
@@ -39,4 +58,4 @@ async function apply(kind) {
 btnClassic.addEventListener('click', () => apply('classic'));
 btnTahoe.addEventListener('click', () => apply('tahoe'));
 
-refresh();
+checkCompatibility();

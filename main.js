@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import path from 'node:path';
+import os from 'node:os';
 import { exec } from 'node:child_process';
 import sudo from 'sudo-prompt';
 
@@ -50,6 +51,19 @@ function shSudo(cmd) {
     });
   });
 }
+
+/** Check OS compatibility */
+ipcMain.handle('os:check', async () => {
+  if (process.platform !== 'darwin') {
+    return { isCompatible: false, reason: 'This app is for macOS only.' };
+  }
+  const release = os.release(); // e.g., '21.1.0' for Monterey
+  const majorVersion = parseInt(release.split('.')[0], 10);
+  if (majorVersion < 26) {
+    return { isCompatible: false, reason: `This app requires macOS Tahoe (kernel version 26) or later. You are on kernel version ${majorVersion}.` };
+  }
+  return { isCompatible: true };
+});
 
 /** Detect current state */
 ipcMain.handle('state:get', async () => {
