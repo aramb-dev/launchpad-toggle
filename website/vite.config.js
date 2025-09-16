@@ -5,4 +5,9 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
+  base: '/launchpad-toggle/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  }
 })

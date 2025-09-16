@@ -12,10 +12,9 @@
   <link rel="canonical" href="https://github.aramb.dev/launchpad-toggle/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <!-- Favicons / PWA basics (replace with your actual files) -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <!-- Favicons / PWA basics -->
+  <link rel="icon" href="./icon-1024.png" sizes="any" />
+  <link rel="apple-touch-icon" href="./icon-1024.png" />
   <meta name="theme-color" content="#1D2240" />
   <meta name="application-name" content="Launchpad Toggle" />
 
@@ -88,20 +87,10 @@
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#home" class="group inline-flex items-center gap-2">
         <span
-          class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 shadow-md">
-          <!-- inline rocket/toggle mark -->
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"
-            class="opacity-90 group-hover:opacity-100 transition">
-            <defs>
-              <linearGradient id="g" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#2CC5FF" />
-                <stop offset="1" stop-color="#7B61FF" />
-              </linearGradient>
-            </defs>
-            <rect x="3" y="7" width="18" height="10" rx="5" fill="url(#g)" fill-opacity="0.8" />
-            <path d="M8 7c3 2 3 8 0 10 0 0 1.5-3 .5-5S8 7 8 7Z" fill="#fff" fill-opacity=".9" />
-            <circle cx="16" cy="12" r="2.6" fill="#0b0f1f" fill-opacity=".3" />
-          </svg>
+          class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 shadow-md overflow-hidden">
+          <!-- App icon -->
+          <img src="./icon-1024.png" alt="Launchpad Toggle icon"
+            class="w-6 h-6 opacity-90 group-hover:opacity-100 transition" />
         </span>
         <span class="font-semibold tracking-tight">Launchpad Toggle</span>
       </a>
@@ -177,9 +166,9 @@
               </div>
               <div class="mt-6 aspect-square rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
                 <!-- Real launchpad preview images -->
-                <img id="classic-image" src="/macos.png" alt="Classic Launchpad interface"
+                <img id="classic-image" src="./macos.png" alt="Classic Launchpad interface"
                   class="w-full h-full object-cover rounded-2xl opacity-100 transition-opacity duration-300 absolute inset-0" />
-                <img id="tahoe-image" src="/tahoe.png" alt="Tahoe Apps interface"
+                <img id="tahoe-image" src="./tahoe.png" alt="Tahoe Apps interface"
                   class="w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-300 absolute inset-0" />
               </div>
               <p id="preview-description" class="mt-4 text-xs text-white/50">Real Classic Launchpad interface. Toggle
