@@ -147,25 +147,24 @@
             <div class="rounded-3xl p-8 bg-slate-900/60 ring-1 ring-white/10">
               <div class="flex items-center justify-between">
                 <div>
-                  <h3 id="preview-title" class="text-lg font-semibold">Classic Launchpad</h3>
-                  <p id="preview-subtitle" class="text-sm text-white/60">Enabled (click toggle to preview)</p>
+                  <h3 id="preview-title" class="text-lg font-semibold">Tahoe Apps</h3>
+                  <p id="preview-subtitle" class="text-sm text-white/60">Enabled (click toggle to switch back)</p>
                 </div>
                 <!-- interactive toggle -->
                 <button id="preview-toggle"
                   class="relative w-16 h-9 rounded-full bg-gradient-to-r from-cyan-400/50 to-violet-400/50 ring-1 ring-white/30 backdrop-blur-md transition-all duration-300">
                   <span id="toggle-knob"
-                    class="absolute top-1 left-1 h-7 w-7 rounded-full bg-white/90 shadow-lg transition-transform duration-300"></span>
+                    class="absolute top-1 left-1 h-7 w-7 rounded-full bg-white/90 shadow-lg transition-transform duration-300 transform translate-x-8"></span>
                 </button>
               </div>
               <div class="mt-6 aspect-square rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
                 <!-- Real launchpad preview images -->
                 <img id="classic-image" src="./macos.png" alt="Classic Launchpad interface"
-                  class="w-full h-full object-cover rounded-2xl opacity-100 transition-opacity duration-300 absolute inset-0" />
-                <img id="tahoe-image" src="./tahoe.png" alt="Tahoe Apps interface"
                   class="w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-300 absolute inset-0" />
+                <img id="tahoe-image" src="./tahoe.png" alt="Tahoe Apps interface"
+                  class="w-full h-full object-cover rounded-2xl opacity-100 transition-opacity duration-300 absolute inset-0" />
               </div>
-              <p id="preview-description" class="mt-4 text-xs text-white/50">Real Classic Launchpad interface. Toggle
-                above to preview Tahoe Apps mode.</p>
+              <p id="preview-description" class="mt-4 text-xs text-white/50">Real Tahoe Apps interface. Toggle above to switch back to Classic Launchpad.</p>
             </div>
           </div>
         </div>
@@ -365,7 +364,7 @@
     const classicImage = document.getElementById('classic-image');
     const tahoeImage = document.getElementById('tahoe-image');
 
-    let isClassicMode = true;
+    let isClassicMode = false;
 
     previewToggle?.addEventListener('click', () => {
       isClassicMode = !isClassicMode;
