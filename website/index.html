@@ -101,7 +101,7 @@
         <a href="#download" class="btn-ghost">Download</a>
       </div>
       <button id="themeBtn"
-        class="inline-flex sm:hidden items-center gap-2 rounded-lg px-3 py-1.5 bg-white/5 ring-1 ring-white/10 hover:bg-white/10">
+        class="inline-flex sm:hidden items-center gap-2 rounded-lg px-3 py-1.5 bg-gradient-to-r from-white/10 to-white/5 ring-1 ring-white/20 hover:ring-white/30 backdrop-blur-md shadow-lg hover:shadow-white/10 transition-all duration-300 hover:from-white/15 hover:to-white/8">
         <span class="sr-only">Toggle theme</span>
         <span data-lucide="sun"></span>
       </button>
@@ -124,13 +124,14 @@
             <span class="block mt-2 text-white/80 font-medium">Free and open source with signed binaries.</span>
           </p>
           <div class="mt-8 flex flex-wrap items-center gap-3">
-            <div class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white/10 text-white/70 font-semibold ring-1 ring-white/20">
+            <div
+              class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-gradient-to-r from-white/15 to-white/5 text-white/80 font-semibold ring-1 ring-white/30 backdrop-blur-md shadow-lg shadow-black/20">
               <!-- clock icon for coming soon -->
               <span data-lucide="clock" aria-hidden="true"></span>
               Coming Soon
             </div>
             <a href="#how"
-              class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white/10 ring-1 ring-white/15 hover:bg-white/15">
+              class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-gradient-to-r from-cyan-400/20 to-violet-400/10 ring-1 ring-white/20 hover:ring-white/30 backdrop-blur-md shadow-lg hover:shadow-cyan-400/20 transition-all duration-300 hover:from-cyan-400/30 hover:to-violet-400/20">
               See how it works
             </a>
           </div>
@@ -143,28 +144,32 @@
         <!-- Interactive preview card -->
         <div class="relative">
           <div
-            class="relative mx-auto w-full max-w-md rounded-3xl p-1 bg-white/10 ring-1 ring-white/20 backdrop-blur-xl shadow-2xl">
-            <div class="rounded-3xl p-8 bg-slate-900/60 ring-1 ring-white/10">
-              <div class="flex items-center justify-between">
+            class="relative mx-auto w-full max-w-md rounded-3xl p-1 bg-gradient-to-br from-white/20 via-white/10 to-white/5 ring-1 ring-white/30 backdrop-blur-xl shadow-2xl shadow-black/40">
+            <div
+              class="rounded-3xl p-8 bg-gradient-to-br from-slate-900/80 via-slate-900/70 to-slate-900/60 ring-1 ring-white/20 backdrop-blur-md">
+              <!-- Preview Toggle Header -->
+              <div class="flex items-center justify-between mb-6">
                 <div>
                   <h3 id="preview-title" class="text-lg font-semibold">Tahoe Apps</h3>
-                  <p id="preview-subtitle" class="text-sm text-white/60">Enabled (click toggle to switch back)</p>
+                  <p id="preview-subtitle" class="text-sm text-white/60">Enabled</p>
                 </div>
-                <!-- interactive toggle -->
-                <button id="preview-toggle"
-                  class="relative w-16 h-9 rounded-full bg-gradient-to-r from-cyan-400/50 to-violet-400/50 ring-1 ring-white/30 backdrop-blur-md transition-all duration-300">
-                  <span id="toggle-knob"
-                    class="absolute top-1 left-1 h-7 w-7 rounded-full bg-white/90 shadow-lg transition-transform duration-300 transform translate-x-8"></span>
+                <!-- Simple Toggle Switch -->
+                <button id="preview-toggle" aria-label="Toggle between Classic and Tahoe"
+                  class="relative w-14 h-8 bg-gradient-to-r from-white/30 to-white/10 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 backdrop-blur-sm ring-1 ring-white/20 shadow-inner">
+                  <div id="toggle-knob"
+                    class="absolute top-1 left-1 w-6 h-6 bg-gradient-to-br from-white via-white/95 to-white/90 rounded-full shadow-lg shadow-black/30 backdrop-blur-sm transition-transform duration-300 ring-1 ring-white/20">
+                  </div>
                 </button>
               </div>
-              <div class="mt-6 aspect-square rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
+              <div class="aspect-square rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden relative">
                 <!-- Real launchpad preview images -->
                 <img id="classic-image" src="./macos.png" alt="Classic Launchpad interface"
                   class="w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-300 absolute inset-0" />
                 <img id="tahoe-image" src="./tahoe.png" alt="Tahoe Apps interface"
                   class="w-full h-full object-cover rounded-2xl opacity-100 transition-opacity duration-300 absolute inset-0" />
               </div>
-              <p id="preview-description" class="mt-4 text-xs text-white/50">Real Tahoe Apps interface. Toggle above to switch back to Classic Launchpad.</p>
+              <p id="preview-description" class="mt-4 text-xs text-white/50">Real Tahoe Apps interface. Toggle above to
+                switch back to Classic Launchpad.</p>
             </div>
           </div>
         </div>
@@ -180,44 +185,56 @@
         restart so changes stick.</p>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Feature cards -->
-        <article class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 backdrop-blur">
-          <div class="h-10 w-10 rounded-xl grid place-items-center bg-white/10 ring-1 ring-white/20 mb-4">
+        <article
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-black/30 transition-all duration-300 hover:from-white/15 hover:via-white/8 hover:to-white/5">
+          <div
+            class="h-10 w-10 rounded-xl grid place-items-center bg-gradient-to-br from-white/20 to-white/10 ring-1 ring-white/30 backdrop-blur-sm shadow-lg mb-4">
             <span data-lucide="map-pin" aria-hidden="true"></span>
           </div>
           <h3 class="font-semibold">One‑click toggle</h3>
           <p class="mt-2 text-sm text-white/70">Switch between Classic Launchpad and Tahoe Apps instantly.</p>
         </article>
-        <article class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 backdrop-blur">
-          <div class="h-10 w-10 rounded-xl grid place-items-center bg-white/10 ring-1 ring-white/20 mb-4">
+        <article
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-black/30 transition-all duration-300 hover:from-white/15 hover:via-white/8 hover:to-white/5">
+          <div
+            class="h-10 w-10 rounded-xl grid place-items-center bg-gradient-to-br from-white/20 to-white/10 ring-1 ring-white/30 backdrop-blur-sm shadow-lg mb-4">
             <span data-lucide="database"></span>
           </div>
           <h3 class="font-semibold">Automatic backup</h3>
           <p class="mt-2 text-sm text-white/70">We snapshot the existing plist before any change.</p>
         </article>
-        <article class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 backdrop-blur">
-          <div class="h-10 w-10 rounded-xl grid place-items-center bg-white/10 ring-1 ring-white/20 mb-4">
+        <article
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-black/30 transition-all duration-300 hover:from-white/15 hover:via-white/8 hover:to-white/5">
+          <div
+            class="h-10 w-10 rounded-xl grid place-items-center bg-gradient-to-br from-white/20 to-white/10 ring-1 ring-white/30 backdrop-blur-sm shadow-lg mb-4">
             <span data-lucide="clock"></span>
           </div>
           <h3 class="font-semibold">Restart guidance</h3>
           <p class="mt-2 text-sm text-white/70">Clear prompt to restart so the feature flag takes effect.</p>
         </article>
-        <article class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 backdrop-blur">
-          <div class="h-10 w-10 rounded-xl grid place-items-center bg-white/10 ring-1 ring-white/20 mb-4">
+        <article
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-black/30 transition-all duration-300 hover:from-white/15 hover:via-white/8 hover:to-white/5">
+          <div
+            class="h-10 w-10 rounded-xl grid place-items-center bg-gradient-to-br from-white/20 to-white/10 ring-1 ring-white/30 backdrop-blur-sm shadow-lg mb-4">
             <span data-lucide="flag"></span>
           </div>
           <h3 class="font-semibold">Native feel</h3>
           <p class="mt-2 text-sm text-white/70">Liquid‑glass visuals, Apple‑like polish.</p>
         </article>
-        <article class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 backdrop-blur">
-          <div class="h-10 w-10 rounded-xl grid place-items-center bg-white/10 ring-1 ring-white/20 mb-4">
+        <article
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-black/30 transition-all duration-300 hover:from-white/15 hover:via-white/8 hover:to-white/5">
+          <div
+            class="h-10 w-10 rounded-xl grid place-items-center bg-gradient-to-br from-white/20 to-white/10 ring-1 ring-white/30 backdrop-blur-sm shadow-lg mb-4">
             <span data-lucide="list"></span>
           </div>
           <h3 class="font-semibold">Free & open source</h3>
           <p class="mt-2 text-sm text-white/70">Source available on GitHub; free, signed binaries and support are
             provided.</p>
         </article>
-        <article class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10 backdrop-blur">
-          <div class="h-10 w-10 rounded-xl grid place-items-center bg-white/10 ring-1 ring-white/20 mb-4">
+        <article
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-black/30 transition-all duration-300 hover:from-white/15 hover:via-white/8 hover:to-white/5">
+          <div
+            class="h-10 w-10 rounded-xl grid place-items-center bg-gradient-to-br from-white/20 to-white/10 ring-1 ring-white/30 backdrop-blur-sm shadow-lg mb-4">
             <span data-lucide="shield"></span>
           </div>
           <h3 class="font-semibold">Offline by default</h3>
@@ -232,18 +249,21 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-center text-3xl sm:text-4xl font-bold">How it works</h2>
       <div class="mt-10 grid gap-6 lg:grid-cols-3">
-        <div class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20">
           <div class="text-sm text-cyan-300 font-semibold">Step 1</div>
           <h3 class="mt-2 font-semibold">Detect your current state</h3>
           <p class="mt-2 text-sm text-white/70">We read the SpotlightUI feature flag to see what's active.</p>
         </div>
-        <div class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20">
           <div class="text-sm text-cyan-300 font-semibold">Step 2</div>
           <h3 class="mt-2 font-semibold">Safe toggle with backup</h3>
           <p class="mt-2 text-sm text-white/70">Before writing or removing the plist, a timestamped backup is created.
           </p>
         </div>
-        <div class="rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 backdrop-blur-md shadow-lg shadow-black/20">
           <div class="text-sm text-cyan-300 font-semibold">Step 3</div>
           <h3 class="mt-2 font-semibold">Restart to apply</h3>
           <p class="mt-2 text-sm text-white/70">We prompt you to restart so the change applies system‑wide.</p>
@@ -255,15 +275,18 @@
   <!-- DOWNLOAD / CTA -->
   <section id="download" class="py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8 sm:p-10 backdrop-blur">
+      <div
+        class="rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/3 ring-1 ring-white/20 p-8 sm:p-10 backdrop-blur-md shadow-xl shadow-black/30">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
             <h3 class="text-2xl font-bold">Coming Soon</h3>
-            <p class="mt-1 text-white/70 text-sm">Download temporarily unavailable due to app signing issues • Will be back soon
+            <p class="mt-1 text-white/70 text-sm">Download temporarily unavailable due to app signing issues • Will be
+              back soon
             </p>
           </div>
           <div class="flex items-center gap-3">
-            <div class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white/10 text-white/70 font-semibold ring-1 ring-white/20">
+            <div
+              class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white/10 text-white/70 font-semibold ring-1 ring-white/20">
               <!-- clock icon for coming soon -->
               <span data-lucide="clock" aria-hidden="true"></span>
               Coming Soon
@@ -283,7 +306,8 @@
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl sm:text-4xl font-bold">FAQ</h2>
       <div class="mt-8 space-y-4">
-        <details class="group rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+        <details
+          class="group rounded-2xl p-6 bg-gradient-to-br from-white/8 via-white/4 to-white/2 ring-1 ring-white/15 backdrop-blur-md shadow-lg hover:shadow-black/20 transition-all duration-300 hover:from-white/12 hover:via-white/6 hover:to-white/3">
           <summary class="flex cursor-pointer list-none items-center justify-between">
             <span class="font-medium">Does this modify system files?</span>
             <span class="transition group-open:rotate-180">▾</span>
@@ -292,7 +316,8 @@
               class="text-white/90">/Library/Preferences/FeatureFlags/Domain/SpotlightUI.plist</code>, with a backup.
           </p>
         </details>
-        <details class="group rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+        <details
+          class="group rounded-2xl p-6 bg-gradient-to-br from-white/8 via-white/4 to-white/2 ring-1 ring-white/15 backdrop-blur-md shadow-lg hover:shadow-black/20 transition-all duration-300 hover:from-white/12 hover:via-white/6 hover:to-white/3">
           <summary class="flex cursor-pointer list-none items-center justify-between">
             <span class="font-medium">Will I always need to restart?</span>
             <span class="transition group-open:rotate-180">▾</span>
@@ -300,7 +325,8 @@
           <p class="mt-2 text-sm text-white/70">A full restart is the most reliable way for the change to take effect
             across the system.</p>
         </details>
-        <details class="group rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+        <details
+          class="group rounded-2xl p-6 bg-gradient-to-br from-white/8 via-white/4 to-white/2 ring-1 ring-white/15 backdrop-blur-md shadow-lg hover:shadow-black/20 transition-all duration-300 hover:from-white/12 hover:via-white/6 hover:to-white/3">
           <summary class="flex cursor-pointer list-none items-center justify-between">
             <span class="font-medium">Is it reversible?</span>
             <span class="transition group-open:rotate-180">▾</span>
@@ -308,7 +334,8 @@
           <p class="mt-2 text-sm text-white/70">Yes. You can switch back anytime; your previous setting is backed up
             with a timestamp.</p>
         </details>
-        <details class="group rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+        <details
+          class="group rounded-2xl p-6 bg-gradient-to-br from-white/8 via-white/4 to-white/2 ring-1 ring-white/15 backdrop-blur-md shadow-lg hover:shadow-black/20 transition-all duration-300 hover:from-white/12 hover:via-white/6 hover:to-white/3">
           <summary class="flex cursor-pointer list-none items-center justify-between">
             <span class="font-medium">What about the new Spotlight features?</span>
             <span class="transition group-open:rotate-180">▾</span>
@@ -364,28 +391,38 @@
     const classicImage = document.getElementById('classic-image');
     const tahoeImage = document.getElementById('tahoe-image');
 
+    // Start with Tahoe Apps enabled (default state)
     let isClassicMode = false;
 
-    previewToggle?.addEventListener('click', () => {
-      isClassicMode = !isClassicMode;
+    function updateToggleState() {
+      const toggle = document.getElementById('preview-toggle');
+      const knob = document.getElementById('toggle-knob');
 
       if (isClassicMode) {
-        // Show Classic Launchpad
-        toggleKnob.style.transform = 'translateX(0)';
+        // Classic mode - knob on RIGHT, blue background
+        knob.style.transform = 'translateX(24px)';
+        toggle.style.backgroundColor = 'rgba(59, 130, 246, 0.5)'; // blue
         previewTitle.textContent = 'Classic Launchpad';
-        previewSubtitle.textContent = 'Enabled (click toggle to preview)';
+        previewSubtitle.textContent = 'Enabled';
         previewDescription.textContent = 'Real Classic Launchpad interface. Toggle above to preview Tahoe Apps mode.';
         classicImage.style.opacity = '1';
         tahoeImage.style.opacity = '0';
       } else {
-        // Show Tahoe Apps
-        toggleKnob.style.transform = 'translateX(2rem)';
+        // Tahoe mode - knob on LEFT, green background
+        knob.style.transform = 'translateX(0)';
+        toggle.style.backgroundColor = 'rgba(34, 197, 94, 0.5)'; // green
         previewTitle.textContent = 'Tahoe Apps';
-        previewSubtitle.textContent = 'Enabled (click toggle to switch back)';
+        previewSubtitle.textContent = 'Enabled';
         previewDescription.textContent = 'Real Tahoe Apps interface. Toggle above to switch back to Classic Launchpad.';
         classicImage.style.opacity = '0';
         tahoeImage.style.opacity = '1';
       }
+    }    // Initialize the toggle state on page load
+    updateToggleState();
+
+    previewToggle?.addEventListener('click', () => {
+      isClassicMode = !isClassicMode;
+      updateToggleState();
     });
   </script>
 </body>
